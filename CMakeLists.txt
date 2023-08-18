@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(emscripten-conan-repo-template)
+project(cpp-algo-workshop)
 
 find_package(spdlog REQUIRED)
 

@@ -1,7 +1,7 @@
 {
     "profiles": [
         {
-            "name": "emscripten-conan-repo-template-Profiles found in the cache:",
+            "name": "cpp-algo-workshop-Profiles found in the cache:",
             "conanFile": "${workspaceFolder}/conanfile.py",
             "profile": "Profiles found in the cache:",
             "installArg": "",

@@ -53,7 +53,7 @@ jobs:
         if: ${{ matrix.images.enabled }}
         run: |
           docker container ls
-          docker exec -t emscripten-conan-repo-template \
+          docker exec -t cpp-algo-workshop \
             scripts/build.${{ matrix.images.target }}.sh \
             ${{ inputs.buildType }}
       

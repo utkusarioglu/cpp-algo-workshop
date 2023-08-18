@@ -22,5 +22,5 @@ class helloTestConan(ConanFile):
 
     def test(self):
         if can_run(self):
-            cmd = os.path.join(self.cpp.build.bindir, "emscripten-conan-repo-template")
+            cmd = os.path.join(self.cpp.build.bindir, "cpp-algo-workshop")
             self.run(cmd, env="conanrun")

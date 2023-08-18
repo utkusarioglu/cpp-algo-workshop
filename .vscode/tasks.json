@@ -1,0 +1,79 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Wasm",
+      "type": "shell",
+      "command": "scripts/build.wasm.sh ${input:buildType}",
+      "detail": "Build the wasm binary"
+    },
+    {
+      "label": "Build Linux",
+      "type": "shell",
+      "command": "scripts/build.linux.sh ${input:buildType}",
+      "detail": "Build a linux binary"
+    },
+    {
+      "label": "Build Windows",
+      "type": "shell",
+      "command": "scripts/build.windows.sh",
+      "detail": "Build a Windows binary"
+    },
+    {
+      "label": "Run Linux",
+      "type": "shell",
+      "command": "scripts/run.linux.sh",
+      "detail": "Run linux binary",
+      "args": [
+        "${input:runArgs}"
+      ]
+    },
+    {
+      "label": "Run Wasm",
+      "type": "shell",
+      "command": "scripts/run.wasm.sh",
+      "detail": "Start python http server"
+    },
+    {
+      "label": "...Run Linux",
+      "type": "shell",
+      "detail": "Build and run a linux exec",
+      "command": "scripts/run.linux.sh && scripts/run.linux.sh",
+      "args": [
+        "${input:runArgs}"
+      ]
+    },
+    {
+      "label": "...Run Wasm",
+      "type": "shell",
+      "command": "scripts/build.wasm.sh && scripts/run.wasm.sh",
+      "detail": "Start python http server"
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "scripts/clean.sh",
+      "detail": "Clean artifacts and support files"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "runArgs",
+      "description": "Runtime arguments",
+      "default": "arg1 arg2 arg3 arg4 arg5 arg6"
+    },
+    {
+      "type": "pickString",
+      "id": "buildType",
+      "description": "Desired build type",
+      "default": "",
+      "options": [
+        "Release",
+        "Debug"
+      ]
+    }
+  ]
+}

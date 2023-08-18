@@ -1,0 +1,12 @@
+build
+.conan
+/unused
+.vscode/workspace*
+.ignore
+
+.env
+.env.*
+!.env.example
+
+generators
+CMakeUserPresets.json

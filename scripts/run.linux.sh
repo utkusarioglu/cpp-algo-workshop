@@ -1,3 +1,3 @@
 #!/bin/bash
 
-build/Release/bin/bin $@
+build/linux/release/bin/cpp-algo-workshop $@

@@ -5,7 +5,7 @@ from stat import S_IRWXG, S_IRWXU, S_IROTH, S_IXOTH
 from shutil import copy2
 
 class Emscripten(ConanFile):  
-    name = "emscripten-conan-repo-template"
+    name = "cpp-algo-workshop"
     version = "1.0.0"
     package_type = "application"
     build_policy = "missing"

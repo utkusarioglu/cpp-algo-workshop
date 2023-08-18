@@ -1,11 +1,11 @@
 {
-  "name": "emscripten-conan-repo-template.templates.utkusarioglu.com",
+  "name": "cpp-algo-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "emscripten-conan-repo-template",
-  "workspaceFolder": "/utkusarioglu/templates/emscripten-conan-repo-template",
+  "service": "cpp-algo-workshop",
+  "workspaceFolder": "/utkusarioglu-com/workshops/cpp-algo-workshop",
   "postCreateCommand": "scripts/post-create-command.sh",
   "customizations": {
     "vscode": {

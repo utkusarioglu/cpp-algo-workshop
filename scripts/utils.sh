@@ -98,5 +98,5 @@ test() {
     -pr:b $(pwd)/profiles/host.profile \
     -pr:h $(pwd)/profiles/$target_profile.profile \
     test_package \
-    emscripten-conan-repo-template/1.0.0
+    cpp-algo-workshop/1.0.0
 }

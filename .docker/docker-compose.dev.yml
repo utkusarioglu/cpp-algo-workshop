@@ -1,10 +1,10 @@
 version: "3.9"
 
 services:
-  emscripten-conan-repo-template:
+  cpp-algo-workshop:
     image: utkusarioglu/emscripten-conan-devcontainer:1.1.0
-    container_name: emscripten-conan-repo-template
+    container_name: cpp-algo-workshop
     volumes:
       - type: bind
         source: ..
-        target: /utkusarioglu/templates/emscripten-conan-repo-template
+        target: /utkusarioglu-com/workshops/cpp-algo-workshop

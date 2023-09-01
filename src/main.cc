@@ -1,18 +1,27 @@
 #ifndef MAIN
 #define MAIN
 
-#include <iostream>
+#include <spdlog/spdlog.h>
+#include <memory>
 #include "./main.hh"
-#include "spdlog/spdlog.h"
+#include "./sorting-algorithms/counting-sort.cc"
+#include "./array-printer/array-printer.cc"
 
 int main(int argc, const char *argv[])
 {
 #ifdef NDEBUG
-  printf("Release configuration!\n");
+  spdlog::info("Starting release config…");
 #else
-  printf("Debug configuration!\n");
+  spdlog::info("Starting debug config…");
 #endif
-  spdlog::warn("hiya5");
+
+  auto countingSort = std::make_unique<CountingSort>();
+  const std::vector<int> params = std::vector<int>{3, 2, 1, 0, 100, 4, 3};
+  const std::vector<int> response = countingSort->loop(params);
+
+  auto arrayPrinter = std::make_unique<ArrayPrinter>();
+  arrayPrinter->print(response);
+
   return 0;
 }
 

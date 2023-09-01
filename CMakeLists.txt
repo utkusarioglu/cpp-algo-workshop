@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 project(cpp-algo-workshop)
 
 find_package(spdlog REQUIRED)
+find_package(fmt REQUIRED)
 
 add_executable(${PROJECT_NAME} src/main.cc)
 
 target_link_libraries(${PROJECT_NAME} 
   spdlog::spdlog
+  fmt::fmt
 )
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")

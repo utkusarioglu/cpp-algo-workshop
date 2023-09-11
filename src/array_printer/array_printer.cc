@@ -1,12 +1,12 @@
-#ifndef ARRAY_PRINTER_ARRAY_PRINTER_CC
-#define ARRAY_PRINTER_ARRAY_PRINTER_CC
+#ifndef CAW_ARRAY_PRINTER_ARRAY_PRINTER_CC_
+#define CAW_ARRAY_PRINTER_ARRAY_PRINTER_CC_
 
 #include <string>
 #include <fmt/core.h>
 #include <vector>
 #include <sstream>
 #include <spdlog/spdlog.h>
-#include "./array-printer.hh"
+#include "./array_printer.h"
 
 void ArrayPrinter::print(const std::vector<int> &response)
 {
@@ -26,4 +26,4 @@ void ArrayPrinter::print(const std::vector<int> &response)
   spdlog::info(oss.str());
 }
 
-#endif
+#endif /* CAW_ARRAY_PRINTER_ARRAY_PRINTER_CC_ */

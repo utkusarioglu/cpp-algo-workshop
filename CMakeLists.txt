@@ -1,15 +1,25 @@
 cmake_minimum_required(VERSION 3.22)
 project(cpp-algo-workshop)
 
-find_package(spdlog REQUIRED)
-find_package(fmt REQUIRED)
+set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
+set(TEST_DIR "${CMAKE_SOURCE_DIR}/test")
 
-add_executable(${PROJECT_NAME} src/main.cc)
+set(BUILD_TARGET_NAME "${PROJECT_NAME}-src")
+set(TEST_TARGET_NAME "${PROJECT_NAME}-test")
 
-target_link_libraries(${PROJECT_NAME} 
+set(BUILD_TARGET_LINK_LIBRARIES 
   spdlog::spdlog
   fmt::fmt
 )
+set(TEST_TARGET_LINK_LIBRARIES 
+  GTest::Main
+)
+
+find_package(spdlog REQUIRED)
+find_package(fmt REQUIRED)
+
+add_subdirectory(${SRC_DIR})
+add_subdirectory(${TEST_DIR})
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
   set_target_properties(${PROJECT_NAME} 

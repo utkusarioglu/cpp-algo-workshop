@@ -1,11 +1,11 @@
-#ifndef MAIN
-#define MAIN
+#ifndef CAW_MAIN_CC_
+#define CAW_MAIN_CC_
 
 #include <spdlog/spdlog.h>
 #include <memory>
-#include "./main.hh"
-#include "./sorting-algorithms/counting-sort.cc"
-#include "./array-printer/array-printer.cc"
+#include "./main.h"
+#include "./sorting_algorithms/counting_sort.h"
+#include "./array_printer/array_printer.h"
 
 int main(int argc, const char *argv[])
 {
@@ -25,4 +25,4 @@ int main(int argc, const char *argv[])
   return 0;
 }
 
-#endif
+#endif /* CAW_MAIN_CC_ */

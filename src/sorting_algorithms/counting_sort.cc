@@ -1,17 +1,16 @@
-#ifndef sORTING_ALGORITHMS_COUNTING_SORT_CC
-#define sORTING_ALGORITHMS_COUNTING_SORT_CC
+#ifndef CAW_SORTING_ALGORITHMS_COUNTING_SORT_CC_
+#define CAW_SORTING_ALGORITHMS_COUNTING_SORT_CC_
 
 #include <algorithm>
 #include <vector>
+#include <climits>
 #include <fmt/core.h>
-#include <spdlog/spdlog.h>
-#include "./counting-sort.hh"
+#include "./counting_sort.h"
 
 int max(const std::vector<int> &arr)
 {
   int current = INT_MIN;
   int arrLength = arr.size();
-  spdlog::info(arrLength);
   for (int i = 0; i < arrLength; i++)
   {
     if (current < arr[i])
@@ -26,7 +25,6 @@ int min(const std::vector<int> &arr)
 {
   int current = INT_MAX;
   int arrLength = arr.size();
-  spdlog::info(fmt::format("Size is {}", arrLength));
   for (int i = 0; i < arrLength; i++)
   {
     if (current > arr[i])
@@ -61,4 +59,4 @@ std::vector<int> CountingSort::loop(const std::vector<int> &unsorted)
   return sorted;
 }
 
-#endif
+#endif /* CAW_SORTING_ALGORITHMS_COUNTING_SORT_CC_ */

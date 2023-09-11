@@ -9,6 +9,7 @@ add_executable(${TEST_TARGET_NAME}
 target_sources(${TEST_TARGET_NAME}
   PRIVATE
   ${SRC_DIR}/sorting_algorithms/counting_sort.cc
+  ${SRC_DIR}/sorting_algorithms/insertion_sort.cc
 )
 
 target_link_libraries(${TEST_TARGET_NAME}

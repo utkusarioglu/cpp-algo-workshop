@@ -67,7 +67,6 @@ create() {
     --lockfile conan.lock
 }
 
-
 clean() {
   os=$1
   build_type=$2
@@ -86,17 +85,12 @@ clean() {
   rm -rf "build/$os/$build_type"
 }
 
-test() {
-  target_profile=$1
+run_test() {
+  os=$1
+  build_type=$2
+  build_type=$(echo $build_type | tr '[:upper:]' '[:lower:]')
   
-  if [ -z "$target_profile" ]; then
-    echo "Error: Target profile needs to be the first param"
-    exit 1
-  fi
-
-  conan test \
-    -pr:b $(pwd)/profiles/host.profile \
-    -pr:h $(pwd)/profiles/$target_profile.profile \
-    test_package \
-    cpp-algo-workshop/1.0.0
+  TEST_BINARY_BASENAME=cpp-algo-workshop-test
+  
+  build/$os/$build_type/bin/$TEST_BINARY_BASENAME
 }

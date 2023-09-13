@@ -6,6 +6,8 @@
 #include <gtest/gtest.h>
 #include "../src/shuffling_algorithms/fisher_yates.h"
 
+using IntVector = std::vector<int>;
+
 class FisherYatesTestFixture : public ::testing::TestWithParam<std::vector<int>>
 {
 protected:
@@ -16,12 +18,12 @@ INSTANTIATE_TEST_SUITE_P(
     ShufflingAlgorithms,
     FisherYatesTestFixture,
     ::testing::Values(
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9},
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9},
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9},
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9},
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9},
-        std::vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9},
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9},
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9},
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9},
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9},
+        IntVector{1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
 TEST_P(FisherYatesTestFixture, Works)
 {

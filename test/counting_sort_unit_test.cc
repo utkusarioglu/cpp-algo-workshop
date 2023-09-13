@@ -1,56 +1,37 @@
 #ifndef CAW_TEST_COUNTING_SORT_UNIT_TEST_CC_
 #define CAW_TEST_COUNTING_SORT_UNIT_TEST_CC_
 
-#include <iostream>
+#include <algorithm>
 #include <gtest/gtest.h>
+
 #include "../src/sorting_algorithms/counting_sort.h"
 
-TEST(CountingSort, Handles321)
+using IntVector = std::vector<int>;
+
+class CountingSortTestFixture : public ::testing::TestWithParam<IntVector>
+{
+protected:
+  IntVector params;
+};
+
+INSTANTIATE_TEST_SUITE_P(
+    CountingSort,
+    CountingSortTestFixture,
+    ::testing::Values(
+        IntVector{3, 2, 1},
+        IntVector{3, 2, 1, 6},
+        IntVector{3, 2, 1, 1, 6},
+        IntVector{3, 2, 100, 1, 1, 6},
+        IntVector{3, 2, 100, 1, 1, 6, -5}));
+
+TEST_P(CountingSortTestFixture, Handles321)
 {
   auto instance = new CountingSort();
-  std::vector<int> params = {3, 2, 1};
+  std::vector<int> params = GetParam();
   auto response = instance->loop(params);
-  std::vector<int> expected = {1, 2, 3};
-
-  ASSERT_EQ(response, expected);
-}
-
-TEST(CountingSort, Handles3216)
-{
-  auto instance = new CountingSort();
-  std::vector<int> params = {3, 2, 1, 6};
-  auto response = instance->loop(params);
-  std::vector<int> expected = {1, 2, 3, 6};
-
-  ASSERT_EQ(response, expected);
-}
-
-TEST(CountingSort, Handles32116)
-{
-  auto instance = new CountingSort();
-  std::vector<int> params = {3, 2, 1, 1, 6};
-  auto response = instance->loop(params);
-  std::vector<int> expected = {1, 1, 2, 3, 6};
-
-  ASSERT_EQ(response, expected);
-}
-
-TEST(CountingSort, Handles32_100_116)
-{
-  auto instance = new CountingSort();
-  std::vector<int> params = {3, 2, 100, 1, 1, 6};
-  auto response = instance->loop(params);
-  std::vector<int> expected = {1, 1, 2, 3, 6, 100};
-
-  ASSERT_EQ(response, expected);
-}
-
-TEST(CountingSort, Handles32_100_116_m5)
-{
-  auto instance = new CountingSort();
-  std::vector<int> params = {3, 2, 100, 1, 1, 6, -5};
-  auto response = instance->loop(params);
-  std::vector<int> expected = {-5, 1, 1, 2, 3, 6, 100};
+  std::vector<int> expected;
+  std::copy(params.begin(), params.end(), std::back_inserter(expected));
+  std::sort(expected.begin(), expected.end());
 
   ASSERT_EQ(response, expected);
 }

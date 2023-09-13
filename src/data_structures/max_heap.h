@@ -43,9 +43,9 @@ public:
     }
     if (this->heap.size() > 1)
     {
-      std::swap(this->heap[0], this->heap.at(-1));
+      this->heap[0] = this->heap.at(-1);
     }
-    this->heap->pop();
+    this->heap.pop_back();
     this->reorder(0);
     return head;
   }

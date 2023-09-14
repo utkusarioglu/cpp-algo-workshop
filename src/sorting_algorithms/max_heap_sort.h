@@ -25,7 +25,6 @@ public:
     std::vector<T> sorted;
     while (!std::get<1>(this->heap->getHead()))
     {
-      std::cout << std::get<0>(this->heap->getHead()) << std::endl;
       std::pair<int, bool> head = this->heap->popHead();
       sorted.push_back(std::get<0>(head));
     }

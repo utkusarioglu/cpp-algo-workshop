@@ -2,9 +2,12 @@
 #define CAW_SRC_DATA_STRUCTURES_MAX_HEAP_H_
 
 #include <utility>
+#include <limits>
+
+#include "i_heap.h"
 
 template <typename T>
-class MaxHeap
+class MaxHeap : public IHeap<T>
 {
 public:
   void insert(const T newElement)
@@ -27,9 +30,9 @@ public:
 
   const std::pair<T, bool> getHead()
   {
-    if (this->heap.size() == 0)
+    if (this->heap.empty())
     {
-      return std::make_pair(0, true);
+      return std::make_pair(std::numeric_limits<T>::min(), true);
     }
     return std::make_pair(this->heap[0], false);
   }
@@ -43,10 +46,13 @@ public:
     }
     if (this->heap.size() > 1)
     {
-      this->heap[0] = this->heap.at(-1);
+      this->heap[0] = this->heap.back();
     }
     this->heap.pop_back();
-    this->reorder(0);
+    if (!this->heap.empty())
+    {
+      this->reorder(0);
+    }
     return head;
   }
 
@@ -68,8 +74,29 @@ private:
     return this->getLeftChildIndex(index) + 1;
   }
 
-  void reorder(const uint index)
+  void reorder(const uint currentIndex)
   {
+    const uint leftChildIndex = this->getLeftChildIndex(currentIndex);
+    const uint lastIndex = this->heap.size() - 1;
+    if (leftChildIndex > lastIndex)
+    {
+      return;
+    }
+    const T leftChildValue = this->heap[leftChildIndex];
+    const uint rightChildIndex = this->getRightChildIndex(currentIndex);
+    const T rightChildValue = rightChildIndex > lastIndex
+                                  ? std::numeric_limits<T>::min()
+                                  : this->heap[rightChildIndex];
+    const uint largestChildIndex = leftChildValue > rightChildValue
+                                       ? leftChildIndex
+                                       : rightChildIndex;
+    const T largestChildValue = this->heap[largestChildIndex];
+    const T currentValue = this->heap[currentIndex];
+    if (largestChildValue > currentValue)
+    {
+      std::swap(this->heap[largestChildIndex], this->heap[currentIndex]);
+    }
+    this->reorder(largestChildIndex);
   }
 };
 

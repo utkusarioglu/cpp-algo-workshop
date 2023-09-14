@@ -21,6 +21,11 @@ find_package(fmt REQUIRED)
 add_subdirectory(${SRC_DIR})
 add_subdirectory(${TEST_DIR})
 
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  message("--------------------Cmake debug mode")
+  add_definitions(-DDEBUG)
+endif()
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
   set_target_properties(${PROJECT_NAME} 
     PROPERTIES 

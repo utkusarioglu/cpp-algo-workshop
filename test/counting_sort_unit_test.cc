@@ -10,6 +10,15 @@ using IntVector = std::vector<int>;
 
 class CountingSortTestFixture : public ::testing::TestWithParam<IntVector>
 {
+public:
+  static const IntVector produceReverseSortedParams(const IntVector params)
+  {
+    std::vector<int> expected;
+    std::copy(params.begin(), params.end(), std::back_inserter(expected));
+    std::sort(expected.begin(), expected.end());
+    return expected;
+  }
+
 protected:
   IntVector params;
 };
@@ -29,9 +38,7 @@ TEST_P(CountingSortTestFixture, Handles321)
   auto instance = new CountingSort();
   std::vector<int> params = GetParam();
   auto response = instance->loop(params);
-  std::vector<int> expected;
-  std::copy(params.begin(), params.end(), std::back_inserter(expected));
-  std::sort(expected.begin(), expected.end());
+  auto expected = CountingSortTestFixture::produceReverseSortedParams(params);
 
   ASSERT_EQ(response, expected);
 }

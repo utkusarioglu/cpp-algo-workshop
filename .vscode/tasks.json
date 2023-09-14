@@ -16,6 +16,12 @@
       "detail": "Build a linux binary"
     },
     {
+      "label": "Install Linux",
+      "type": "shell",
+      "command": "scripts/install.linux.sh ${input:buildType}",
+      "detail": "Build a linux binary"
+    },
+    {
       "label": "Build Windows",
       "type": "shell",
       "command": "scripts/build.windows.sh",

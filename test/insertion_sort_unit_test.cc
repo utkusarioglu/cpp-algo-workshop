@@ -11,6 +11,15 @@ using IntVector = std::vector<int>;
 
 class InsertionSortTestFixture : public ::testing::TestWithParam<IntVector>
 {
+public:
+  static const IntVector produceReverseSortedParams(const IntVector params)
+  {
+    std::vector<int> expected;
+    std::copy(params.begin(), params.end(), std::back_inserter(expected));
+    std::sort(expected.begin(), expected.end());
+    return expected;
+  }
+
 protected:
   IntVector param;
 };
@@ -28,11 +37,10 @@ INSTANTIATE_TEST_SUITE_P(
 TEST_P(InsertionSortTestFixture, Handles321)
 {
   auto instance = new InsertionSort();
-  std::vector<int> params = GetParam();
+  IntVector params = GetParam();
   auto response = instance->loop(params);
-  std::vector<int> expected;
-  std::copy(params.begin(), params.end(), std::back_inserter(expected));
-  std::sort(expected.begin(), expected.end());
+  IntVector expected =
+      InsertionSortTestFixture::produceReverseSortedParams(params);
 
   ASSERT_EQ(response, expected);
 }

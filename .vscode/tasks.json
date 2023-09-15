@@ -16,6 +16,15 @@
       "detail": "Build a linux binary"
     },
     {
+      "label": "...Build Linux",
+      "type": "shell",
+      "command": "scripts/build.linux.sh ${input:buildType}",
+      "detail": "Build a linux binary",
+      "dependsOn": [
+        "Install Linux"
+      ]
+    },
+    {
       "label": "Install Linux",
       "type": "shell",
       "command": "scripts/install.linux.sh ${input:buildType}",
@@ -46,7 +55,10 @@
       "label": "...Run Linux",
       "type": "shell",
       "detail": "Build and run a linux exec",
-      "command": "scripts/build.linux.sh ${input:buildType} && scripts/run.linux.sh ${input:runArgs}",
+      "dependsOn": [
+        "Build Linux"
+      ],
+      "command": "scripts/run.linux.sh ${input:runArgs}",
     },
     {
       "label": "...Run Wasm",

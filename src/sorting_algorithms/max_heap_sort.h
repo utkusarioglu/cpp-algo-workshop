@@ -4,10 +4,12 @@
 #include <memory>
 #include <utility>
 
+#include "i_heap_sort.h"
+
 #include "../data_structures/max_heap.h"
 
 template <typename T>
-class MaxHeapSort
+class MaxHeapSort : public IHeapSort<T>
 {
 public:
   MaxHeapSort()
@@ -15,12 +17,12 @@ public:
     this->heap = std::make_unique<MaxHeap<T>>();
   }
 
-  void insert(const T newElement)
+  void insert(const T newElement) override
   {
     this->heap->insert(newElement);
   }
 
-  const std::vector<T> sort()
+  const std::vector<T> sort() override
   {
     std::vector<T> sorted;
     while (!std::get<1>(this->heap->getHead()))

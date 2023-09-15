@@ -65,7 +65,7 @@ TEST_P(MaxHeapGetHeadTestFixture, CorrectHead)
 {
   IntVector param = GetParam();
   int expectedValue = param.size() == 0
-                          ? std::numeric_limits<int>::min()
+                          ? 0
                           : *std::max_element(param.begin(), param.end());
   int expectedIsError = param.size() == 0;
   auto h = new MaxHeap<int>();

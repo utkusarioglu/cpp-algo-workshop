@@ -2,6 +2,7 @@
 #define CAW_TEST_COUNTING_SORT_UNIT_TEST_CC_
 
 #include <algorithm>
+#include <vector>
 #include <gtest/gtest.h>
 
 #include "../src/sorting_algorithms/counting_sort.h"

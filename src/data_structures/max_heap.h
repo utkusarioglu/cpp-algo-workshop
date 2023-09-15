@@ -23,7 +23,7 @@ public:
       {
         return;
       }
-      std::swap(this->heap[currentIndex], this->heap[parentIndex]);
+      this->swapIndices(currentIndex, parentIndex);
       currentIndex = parentIndex;
     }
   }
@@ -59,7 +59,7 @@ private:
     const T currentValue = this->heap[currentIndex];
     if (largestChildValue > currentValue)
     {
-      std::swap(this->heap[largestChildIndex], this->heap[currentIndex]);
+      this->swapIndices(largestChildIndex, currentIndex);
     }
     this->reorder(largestChildIndex);
   }

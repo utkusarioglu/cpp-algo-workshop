@@ -1,21 +1,23 @@
-#ifndef CAW_TEST_MAX_HEAP_SORT_UNIT_TEST_H_
-#define CAW_TEST_MAX_HEAP_SORT_UNIT_TEST_H_
+#ifndef CAW_TEST_MIN_HEAP_SORT_UNIT_TEST_CC_
+#define CAW_TEST_MIN_HEAP_SORT_UNIT_TEST_CC_
 
 #include <gtest/gtest.h>
+#include <algorithm>
 #include <memory>
+#include <vector>
 
-#include "../src/sorting_algorithms/max_heap_sort.h"
+#include "../src/sorting_algorithms/min_heap_sort.h"
 
 using IntVector = std::vector<int>;
 
-class MaxHeapSortTestFixture : public ::testing::TestWithParam<IntVector>
+class MinHeapSortTestFixture : public ::testing::TestWithParam<IntVector>
 {
 public:
-  static const IntVector produceSortedParams(const IntVector param)
+  static const IntVector produceSortedExpected(const IntVector param)
   {
     IntVector expected;
     std::copy(param.begin(), param.end(), std::back_inserter(expected));
-    std::sort(expected.begin(), expected.end(), std::greater<int>());
+    std::sort(expected.begin(), expected.end());
     return expected;
   }
 
@@ -24,8 +26,8 @@ protected:
 };
 
 INSTANTIATE_TEST_SUITE_P(
-    MaxHeapSort,
-    MaxHeapSortTestFixture,
+    MinHeapSort,
+    MinHeapSortTestFixture,
     ::testing::Values(
         IntVector{},
         IntVector{1},
@@ -52,19 +54,19 @@ INSTANTIATE_TEST_SUITE_P(
         IntVector{1, 2, 3, 4, -1, 6, 4, 1},
         IntVector{4, 4, 4, 4, 4, 4, 4}));
 
-TEST_P(MaxHeapSortTestFixture, Works)
+TEST_P(MinHeapSortTestFixture, Inserts)
 {
-  IntVector param = GetParam();
-  IntVector expected = MaxHeapSortTestFixture::produceSortedParams(param);
-  std::unique_ptr<MaxHeapSort<int>> sorter = std::make_unique<MaxHeapSort<int>>();
-  for (auto value : param)
+  const IntVector param = GetParam();
+  const IntVector expected = MinHeapSortTestFixture::produceSortedExpected(param);
+  const auto minHeapSort = std::make_unique<MinHeapSort<int>>();
+  for (auto elem : param)
   {
-    sorter->insert(value);
+    minHeapSort->insert(elem);
   }
-  IntVector sorted = sorter->sort();
+  const auto response = minHeapSort->sort();
 
-  ASSERT_EQ(sorted.size(), expected.size());
-  ASSERT_EQ(sorted, expected);
+  ASSERT_EQ(response.size(), expected.size());
+  ASSERT_EQ(response, expected);
 }
 
-#endif /* CAW_TEST_MAX_HEAP_SORT_UNIT_TEST_H_ */
+#endif /* CAW_TEST_MIN_HEAP_SORT_UNIT_TEST_CC_ */

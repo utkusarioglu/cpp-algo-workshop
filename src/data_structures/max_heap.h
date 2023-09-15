@@ -4,10 +4,10 @@
 #include <utility>
 #include <limits>
 
-#include "i_heap.h"
+#include "heap.h"
 
 template <typename T>
-class MaxHeap : public IHeap<T>
+class MaxHeap : public Heap<T>
 {
 public:
   void insert(const T newElement)
@@ -28,27 +28,9 @@ public:
     }
   }
 
-  const std::pair<T, bool> getHead()
-  {
-    if (this->heap.empty())
-    {
-      return std::make_pair(std::numeric_limits<T>::min(), true);
-    }
-    return std::make_pair(this->heap[0], false);
-  }
-
   const std::pair<T, bool> popHead()
   {
-    const std::pair<T, bool> head = this->getHead();
-    if (std::get<1>(head))
-    {
-      return head;
-    }
-    if (this->heap.size() > 1)
-    {
-      this->heap[0] = this->heap.back();
-    }
-    this->heap.pop_back();
+    const std::pair<T, bool> head = this->replaceHeadWithBack();
     if (!this->heap.empty())
     {
       this->reorder(0);
@@ -57,23 +39,6 @@ public:
   }
 
 private:
-  std::vector<T> heap{};
-
-  const uint getParentIndex(uint index)
-  {
-    return (index - 1) / 2;
-  }
-
-  const uint getLeftChildIndex(uint index)
-  {
-    return index * 2 + 1;
-  }
-
-  const uint getRightChildIndex(uint index)
-  {
-    return this->getLeftChildIndex(index) + 1;
-  }
-
   void reorder(const uint currentIndex)
   {
     const uint leftChildIndex = this->getLeftChildIndex(currentIndex);

@@ -10,7 +10,7 @@
 
 using IntVector = std::vector<int>;
 
-class MinHeapSortTestFixture : public ::testing::TestWithParam<IntVector>
+class BubbleSortTestFixture : public ::testing::TestWithParam<IntVector>
 {
 public:
   static const IntVector produceSortedExpected(const IntVector param)
@@ -26,8 +26,8 @@ protected:
 };
 
 INSTANTIATE_TEST_SUITE_P(
-    MinHeapSort,
-    MinHeapSortTestFixture,
+    BubbleSort,
+    BubbleSortTestFixture,
     ::testing::Values(
         IntVector{},
         IntVector{1},
@@ -54,10 +54,10 @@ INSTANTIATE_TEST_SUITE_P(
         IntVector{1, 2, 3, 4, -1, 6, 4, 1},
         IntVector{4, 4, 4, 4, 4, 4, 4}));
 
-TEST_P(MinHeapSortTestFixture, Inserts)
+TEST_P(BubbleSortTestFixture, Inserts)
 {
   const IntVector param = GetParam();
-  const IntVector expected = MinHeapSortTestFixture::produceSortedExpected(param);
+  const IntVector expected = BubbleSortTestFixture::produceSortedExpected(param);
   const auto bubbleSort = std::make_unique<BubbleSort<int>>();
   const auto response = bubbleSort->sort(param);
 
@@ -65,10 +65,10 @@ TEST_P(MinHeapSortTestFixture, Inserts)
   ASSERT_EQ(response, expected);
 }
 
-TEST_P(MinHeapSortTestFixture, LoopsInReverse)
+TEST_P(BubbleSortTestFixture, LoopsInReverse)
 {
   const IntVector param = GetParam();
-  const IntVector expected = MinHeapSortTestFixture::produceSortedExpected(param);
+  const IntVector expected = BubbleSortTestFixture::produceSortedExpected(param);
   const auto bubbleSort = std::make_unique<BubbleSort<int>>();
   const auto response = bubbleSort->startFromReverse(param);
 

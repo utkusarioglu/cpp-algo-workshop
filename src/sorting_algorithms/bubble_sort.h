@@ -36,6 +36,11 @@ public:
     std::vector<T> sorted;
     std::copy(unsorted.begin(), unsorted.end(), std::back_inserter(sorted));
 
+    if (sorted.size() == 0)
+    {
+      return sorted;
+    }
+
     bool has_changed = true;
     while (has_changed)
     {

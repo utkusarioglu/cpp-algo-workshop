@@ -10,7 +10,8 @@
 // #include "max_heap_sort_unit_test.cc"
 // #include "min_heap_unit_test.cc"
 // #include "min_heap_sort_unit_test.cc"
-#include "bubble_sort_unit_test.cc"
+// #include "bubble_sort_unit_test.cc"
 // #include "quick_sort_unit_test.cc"
+#include "merge_sort_unit_test.cc"
 
 #endif /* CAW_TEST_MAIN_CC_ */

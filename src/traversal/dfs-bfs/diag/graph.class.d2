@@ -1,0 +1,84 @@
+...@lib/class
+
+Array: {
+  class: [
+    uml_class
+    __class_utility__
+  ]
+
+  append(): void
+  prepend(): void
+  getLength(): int
+  shift(): T
+  pop(): T
+}
+
+IdArray: {
+  class: [
+    uml_class
+    __class_utility__
+  ]
+  
+  getId: const char*
+
+  # ...and also Array methods
+}
+
+Node: {
+  class: [
+    uml_class
+  ]
+
+  addNeighbor(T): void
+  getNeighborById(int): T
+}
+
+Graph:{
+  class: [
+    uml_class
+  ]
+
+  includeNode(Node\*): void
+  getNode(int nodeId): Node\*
+  getNodeCount(): int
+}
+
+Graph -> Node: {
+  class: [
+    __target_aggregation__
+  ]
+}
+
+Node <-> Node: {
+  class: [
+    __source_aggregation__
+    __target_aggregation__
+  ]
+}
+
+IdArray -> Array: {
+  class: [
+    __target_aggregation__
+    link_2
+  ]
+  source-arrowhead: 1
+  target-arrowhead: 2
+}
+
+Node -> IdArray: {
+  class: [
+    __target_composition__
+    link_2
+  ]
+  source-arrowhead: 1
+  target-arrowhead: 1
+}
+
+Graph -> IdArray: {
+  class: [
+    __target_composition__
+    link_2
+  ]
+  source-arrowhead: 1
+  target-arrowhead: 1
+}

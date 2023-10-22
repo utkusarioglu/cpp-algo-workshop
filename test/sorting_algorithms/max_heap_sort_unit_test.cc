@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include <memory>
 
-#include "../src/sorting_algorithms/max_heap_sort.h"
+#include "sorting_algorithms/max_heap_sort.h"
 
 using IntVector = std::vector<int>;
 

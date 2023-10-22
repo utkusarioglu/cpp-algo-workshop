@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <gtest/gtest.h>
 
-#include "../src/shuffling_algorithms/fisher_yates.h"
+#include "shuffling_algorithms/fisher_yates.h"
 
 using IntVector = std::vector<int>;
 

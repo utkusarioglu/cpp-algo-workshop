@@ -3,14 +3,23 @@
     {
       "name": "Linux",
       "includePath": [
-        "${workspaceFolder}/src/**",
+        "/home/conan/.conan2/p/**",
         "${workspaceFolder}/test/**",
-        "/home/conan/.conan2/p/**"
+        "${workspaceFolder}/src/**"
       ],
-      "defines": [],
       "compilerPath": "/usr/local/bin/clang++",
       "cStandard": "c23",
-      "configurationProvider": "ms-vscode.cmake-tools"
+      "cppStandard": "gnu++20",
+      "browse": {
+        "path": [
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      },
+      "defines": [
+        "SPDLOG_FMT_EXTERNAL"
+      ]
     }
   ],
   "version": 4

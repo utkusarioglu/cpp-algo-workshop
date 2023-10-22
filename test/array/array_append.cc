@@ -2,9 +2,10 @@
 #define CAW_TEST_ARRAY_ARRAY_POP_UNIT_TEST_CC_
 
 #include <stdexcept>
+#include <gtest/gtest.h>
 
 #include "array_test_setup.cc"
-#include "../../src/array/array.h"
+#include "array/array.h"
 
 class ArrayAppendTF : public ArrayTF
 {

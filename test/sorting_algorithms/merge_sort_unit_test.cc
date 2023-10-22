@@ -1,22 +1,21 @@
-#ifndef CAW_TEST_QUICK_SORT_UNIT_TEST_CC_
-#define CAW_TEST_QUICK_SORT_UNIT_TEST_CC_
+#ifndef CAW_TEST_MERGE_SORT_UNIT_TEST_CC_
+#define CAW_TEST_MERGE_SORT_UNIT_TEST_CC_
 
-#include <vector>
 #include <memory>
 
 #include <gtest/gtest.h>
 
-#include "../src/sorting_algorithms/quick_sort.h"
+#include "sorting_algorithms/merge_sort.h"
 
 using IntVector = std::vector<int>;
 
-class QuickSortTestFixture : public ::testing::TestWithParam<IntVector>
+class MergeSortTestFixture : public ::testing::TestWithParam<IntVector>
 {
 public:
-  const IntVector produceSortedParams(const IntVector unsorted)
+  static const IntVector produceSortedExpected(const IntVector param)
   {
     IntVector expected;
-    std::copy(unsorted.begin(), unsorted.end(), std::back_inserter(expected));
+    std::copy(param.begin(), param.end(), std::back_inserter(expected));
     std::sort(expected.begin(), expected.end());
     return expected;
   }
@@ -26,8 +25,8 @@ protected:
 };
 
 INSTANTIATE_TEST_SUITE_P(
-    QuickSort,
-    QuickSortTestFixture,
+    MergeSort,
+    MergeSortTestFixture,
     ::testing::Values(
         IntVector{},
         IntVector{1},
@@ -54,14 +53,14 @@ INSTANTIATE_TEST_SUITE_P(
         IntVector{1, 2, 3, 4, -1, 6, 4, 1},
         IntVector{4, 4, 4, 4, 4, 4, 4}));
 
-TEST_P(QuickSortTestFixture, Works)
+TEST_P(MergeSortTestFixture, Works)
 {
-  IntVector param = GetParam();
-  IntVector expected = QuickSortTestFixture::produceSortedParams(param);
-  std::unique_ptr<QuickSort<int>> sorter = std::make_unique<QuickSort<int>>();
-  IntVector sorted = sorter->sort(param);
+  const IntVector param = GetParam();
+  const IntVector expected = MergeSortTestFixture::produceSortedExpected(param);
+  auto mergeSort = std::make_unique<MergeSort<int>>();
+  auto response = mergeSort->sort(param);
 
-  ASSERT_EQ(sorted, expected);
+  ASSERT_EQ(response, expected);
 }
 
-#endif /* CAW_TEST_QUICK_SORT_UNIT_TEST_CC_ */
+#endif /* CAW_TEST_MERGE_SORT_UNIT_TEST_CC_ */

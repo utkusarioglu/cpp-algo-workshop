@@ -8,11 +8,10 @@
         "/home/conan/.conan2/p/**"
       ],
       "defines": [],
-      "compilerPath": "/usr/bin/gcc",
+      "compilerPath": "/usr/local/bin/clang++",
       "cStandard": "c23",
       "configurationProvider": "ms-vscode.cmake-tools"
     }
   ],
   "version": 4
 }
-

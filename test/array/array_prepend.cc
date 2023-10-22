@@ -2,7 +2,7 @@
 #define CAW_TEST_ARRAY_ARRAY_PREPEND_CC_
 
 #include "array_test_setup.cc"
-#include "../../src/array/array.h"
+#include "array/array.h"
 
 class ArrayPrependTF : public ArrayTF
 {

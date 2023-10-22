@@ -7,7 +7,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../src/data_structures/min_heap.h"
+#include "data_structures/min_heap.h"
 
 using IntVector = std::vector<int>;
 

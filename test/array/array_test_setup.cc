@@ -5,7 +5,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../../src/array/array.h"
+#include "array/array.h"
 
 using IntVector = std::vector<int>;
 

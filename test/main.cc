@@ -3,16 +3,17 @@
 
 #include <gtest/gtest.h>
 
-#include "counting_sort_unit_test.cc"
-#include "insertion_sort_unit_test.cc"
-#include "fisher_yates_unit_test.cc"
-#include "max_heap_unit_test.cc"
-#include "max_heap_sort_unit_test.cc"
-#include "min_heap_unit_test.cc"
-#include "min_heap_sort_unit_test.cc"
-#include "bubble_sort_unit_test.cc"
-#include "quick_sort_unit_test.cc"
-#include "merge_sort_unit_test.cc"
+#include "sorting_algorithms/counting_sort_unit_test.cc"
+#include "sorting_algorithms/insertion_sort_unit_test.cc"
+#include "sorting_algorithms/fisher_yates_unit_test.cc"
+#include "sorting_algorithms/max_heap_unit_test.cc"
+#include "sorting_algorithms/max_heap_sort_unit_test.cc"
+#include "sorting_algorithms/min_heap_unit_test.cc"
+#include "sorting_algorithms/min_heap_sort_unit_test.cc"
+#include "sorting_algorithms/bubble_sort_unit_test.cc"
+#include "sorting_algorithms/quick_sort_unit_test.cc"
+#include "sorting_algorithms/merge_sort_unit_test.cc"
+
 #include "array/array_unit_test.cc"
 
 #endif /* CAW_TEST_MAIN_CC_ */

@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <spdlog/spdlog.h>
 
-#include "../src/data_structures/max_heap.h"
+#include "data_structures/max_heap.h"
 
 using IntVector = std::vector<int>;
 

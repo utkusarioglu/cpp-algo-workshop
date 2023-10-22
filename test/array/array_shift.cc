@@ -4,7 +4,7 @@
 #include <stdexcept>
 
 #include "array_test_setup.cc"
-#include "../../src/array/array.h"
+#include "array/array.h"
 
 class ArrayShiftTF : public ArrayTF
 {

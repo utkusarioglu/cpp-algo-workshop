@@ -12,6 +12,8 @@ target_sources(${TEST_TARGET_NAME}
   ${SRC_DIR}/sorting_algorithms/insertion_sort.cc
 )
 
+include_directories("${SRC_DIR}")
+
 target_link_libraries(${TEST_TARGET_NAME}
   ${BUILD_TARGET_LINK_LIBRARIES}
   ${TEST_TARGET_LINK_LIBRARIES}

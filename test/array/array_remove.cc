@@ -23,14 +23,14 @@ INSTANTIATE_TEST_SUITE_P(
         IntVector{0, 1, 2, 3, 4, 5, 6, 7, 8},
         IntVector{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));
 
-// TEST_P(ArrayRemoveTF, RemoveFirstElement_CorrectArraySize)
-// {
-//   auto param = GetParam();
-//   Array<int> a = ArrayRemoveTF::populateWithAppend(param);
-//   a.remove(0);
+TEST_P(ArrayRemoveTF, RemoveFirstElement_CorrectArraySize)
+{
+  auto param = GetParam();
+  Array<int> a = ArrayRemoveTF::populateWithAppend(param);
+  a.remove(0);
 
-//   ASSERT_EQ(a.length(), param.size() - 1);
-// }
+  ASSERT_EQ(a.length(), param.size() - 1);
+}
 
 TEST_P(ArrayRemoveTF, RemoveFirstElement_CorrectArrayElements)
 {
@@ -44,20 +44,20 @@ TEST_P(ArrayRemoveTF, RemoveFirstElement_CorrectArrayElements)
   }
 }
 
-// TEST_P(ArrayRemoveTF, Remove1SizeWorks)
-// {
-//   auto param = GetParam();
-//   Array<int> a = ArrayRemoveTF::populateWithAppend(param);
-//   a.remove(1);
+TEST_P(ArrayRemoveTF, Remove1SizeWorks)
+{
+  auto param = GetParam();
+  Array<int> a = ArrayRemoveTF::populateWithAppend(param);
+  a.remove(1);
 
-//   if (param.size() > 2)
-//   {
-//     ASSERT_EQ(a.length(), param.size() - 1);
-//   }
-//   else
-//   {
-//     ASSERT_EQ(a.length(), param.size());
-//   }
-// }
+  if (param.size() > 1)
+  {
+    ASSERT_EQ(a.length(), param.size() - 1);
+  }
+  else
+  {
+    ASSERT_EQ(a.length(), param.size());
+  }
+}
 
 #endif /* CAW_TEST_ARRAY_ARRAY_REMOVE_CC_ */

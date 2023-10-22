@@ -7,6 +7,6 @@
 #include "array_prepend.cc"
 #include "array_shift.cc"
 #include "array_pop.cc"
-// #include "array_remove.cc"
+#include "array_remove.cc"
 
 #endif /* CAW_TEST_ARRAY_ARRAY_H_ */

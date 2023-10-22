@@ -85,7 +85,7 @@ public:
       return;
     }
 
-    for (int i = elementIndex; i < this->len - 2; i++)
+    for (int i = elementIndex; i < this->len - 1; i++)
     {
       this->elements[i] = this->elements[i + 1];
     }

@@ -15,31 +15,6 @@ namespace MaximumSubarray
   class MaximumSubarray
   {
   public:
-    int worm(Vec vec) const
-    {
-      uint size = vec.size();
-
-      int maxAmount = std::numeric_limits<int>::min();
-      int sum = 0;
-
-      for (uint i = 0; i < size; i++) {
-        sum += vec[i];
-        if (sum <= maxAmount) {
-          continue;
-        }
-        maxAmount = sum;
-
-        for (uint j = 0; j < i; j++) {
-          sum -= vec[j];
-          if (sum > maxAmount) {
-            maxAmount = sum;
-          }
-        }
-      }
-
-      return maxAmount;
-    }
-
     int sums(Vec vec) const
     {
       uint size = vec.size();

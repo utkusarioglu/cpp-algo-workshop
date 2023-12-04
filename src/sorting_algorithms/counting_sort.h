@@ -3,10 +3,13 @@
 
 #include <vector>
 
-class CountingSort
+namespace CountingSort
 {
-public:
-  std::vector<int> loop(const std::vector<int> &unsorted);
-};
+  class CountingSort
+  {
+  public:
+    std::vector<int> loop(const std::vector<int> &unsorted);
+  };
+}  // namespace CountingSort
 
 #endif /* CAW_SORTING_ALGORITHMS_COUNTING_SORT_H_ */

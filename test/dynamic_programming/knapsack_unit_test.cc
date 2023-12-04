@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#include "./dynamic.cc"
-#include "./recursive.cc"
+#include "knapsack_dynamic.cc"
+#include "knapsack_recursive.cc"
 
 #endif /* CAW_TEST_DYNAMIC_PROGRAMMING_KNAPSACK_UNIT_TEST_CC_ */

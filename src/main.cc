@@ -1,11 +1,14 @@
 #ifndef CAW_MAIN_CC_
 #define CAW_MAIN_CC_
 
-#include <spdlog/spdlog.h>
-#include <memory>
 #include "./main.h"
-#include "./sorting_algorithms/counting_sort.h"
+
+#include <spdlog/spdlog.h>
+
+#include <memory>
+
 #include "./array_printer/array_printer.h"
+#include "./sorting_algorithms/counting_sort.h"
 
 int main(int argc, const char *argv[])
 {
@@ -15,7 +18,7 @@ int main(int argc, const char *argv[])
   spdlog::info("Starting debug config…");
 #endif
 
-  auto countingSort = std::make_unique<CountingSort>();
+  auto countingSort = std::make_unique<CountingSort::CountingSort>();
   const std::vector<int> params = std::vector<int>{3, 2, 1, 0, 100, 4, 3};
   const std::vector<int> response = countingSort->loop(params);
 

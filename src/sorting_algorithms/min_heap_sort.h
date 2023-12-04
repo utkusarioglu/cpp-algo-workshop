@@ -1,40 +1,46 @@
 #ifndef CAW_SRC_SORTING_ALGORITHMS_MIN_HEAP_SORT_H_
 #define CAW_SRC_SORTING_ALGORITHMS_MIN_HEAP_SORT_H_
 
-#include <vector>
 #include <memory>
-
-#include "i_heap_sort.h"
+#include <vector>
 
 #include "../data_structures/min_heap.h"
+#include "i_heap_sort.h"
 
-template <typename T>
-class MinHeapSort : public IHeapSort<T>
+namespace Heap
 {
-public:
-  MinHeapSort()
+  namespace MinHeap
   {
-    this->heap = std::make_unique<MinHeap<T>>();
-  }
 
-  void insert(const T newElement)
-  {
-    this->heap->insert(newElement);
-  }
-
-  const std::vector<T> sort()
-  {
-    std::vector<T> sorted;
-    while (!std::get<1>(this->heap->getHead()))
+    template <typename T>
+    class MinHeapSort : public IHeapSort<T>
     {
-      const auto [headValue, _isError] = this->heap->popHead();
-      sorted.push_back(headValue);
-    }
-    return sorted;
-  }
+    public:
+      MinHeapSort()
+      {
+        this->heap = std::make_unique<MinHeap<T>>();
+      }
 
-private:
-  std::unique_ptr<MinHeap<T>> heap;
-};
+      void insert(const T newElement)
+      {
+        this->heap->insert(newElement);
+      }
+
+      const std::vector<T> sort()
+      {
+        std::vector<T> sorted;
+        while (!std::get<1>(this->heap->getHead())) {
+          const auto [headValue, _isError] = this->heap->popHead();
+          sorted.push_back(headValue);
+        }
+        return sorted;
+      }
+
+    private:
+      std::unique_ptr<MinHeap<T>> heap;
+    };
+
+  }  // namespace MinHeap
+}  // namespace Heap
 
 #endif /* CAW_SRC_SORTING_ALGORITHMS_MIN_HEAP_SORT_H_ */

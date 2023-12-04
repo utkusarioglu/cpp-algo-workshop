@@ -3,10 +3,14 @@
 
 #include <vector>
 
-class InsertionSort
+namespace InsertionSort
 {
-public:
-  std::vector<int> loop(const std::vector<int> &unsorted);
-};
+  class InsertionSort
+  {
+  public:
+    std::vector<int> loop(const std::vector<int> &unsorted);
+  };
+
+}  // namespace InsertionSort
 
 #endif /* CAW_SRC_SORTING_ALGORITHMS_INSERTION_SORT_H_ */

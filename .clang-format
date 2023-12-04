@@ -7,7 +7,6 @@ UseTab: Never
 ColumnLimit: 80
 AccessModifierOffset: -2
 AlignAfterOpenBracket: BlockIndent
-AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
 AlignEscapedNewlinesLeft: true
 AlignOperands: true
@@ -23,3 +22,18 @@ AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: true
 BreakBeforeBraces: Linux
+NamespaceIndentation: All
+AlignConsecutiveAssignments: false
+
+# BraceWrapping: 
+#   AfterClass: true
+#   AfterControlStatement: true
+#   AfterEnum: true
+#   AfterFunction: true
+#   AfterNamespace: true
+#   AfterStruct: true
+#   AfterUnion: true
+#   BeforeCatch: true
+#   BeforeElse: true
+#   IndentBraces: true
+#   BeforeLambdaBody: false

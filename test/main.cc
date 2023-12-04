@@ -8,7 +8,7 @@
 #include "leetcode/buy_sell_stock_unit_test.cc"
 #include "leetcode/clone_graph_unit_test.cc"
 #include "leetcode/maximum_product_subarray_unit_test.cc"
-// #include "leetcode/maximum_subarray_unit_test.cc"
+#include "leetcode/maximum_subarray_unit_test.cc"
 #include "leetcode/minimum_window_substring_unit_test.cc"
 #include "leetcode/product_of_array_except_self_unit_test.cc"
 #include "leetcode/two_sum_unit_test.cc"

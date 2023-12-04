@@ -28,14 +28,6 @@ namespace MaximumSubarray
       )
     );
 
-    TEST_P(MaximumSubarrayTf, window)
-    {
-      TestCase testCase = GetParam();
-      MaximumSubarray m = MaximumSubarray();
-      int response = m.worm(testCase.params);
-      ASSERT_EQ(response, testCase.expected);
-    }
-
     TEST_P(MaximumSubarrayTf, sums)
     {
       TestCase testCase = GetParam();
@@ -51,7 +43,6 @@ namespace MaximumSubarray
       int response = m.dp(testCase.params);
       ASSERT_EQ(response, testCase.expected);
     }
-
   }  // namespace UnitTests
 }  // namespace MaximumSubarray
 

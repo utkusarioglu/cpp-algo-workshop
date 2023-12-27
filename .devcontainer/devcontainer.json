@@ -10,9 +10,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.cpptools",
-        "ms-vscode.cmake-tools",
-        "akiramiyakoda.cppincludeguard"
+        "akiramiyakoda.cppincludeguard",
+        "ms-vscode.cpptools-extension-pack"
       ],
       "settings": {
         "workbench.colorCustomizations": {

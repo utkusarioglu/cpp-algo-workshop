@@ -11,3 +11,4 @@ build
 generators
 CMakeUserPresets.json
 *.log
+core.*

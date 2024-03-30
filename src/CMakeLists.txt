@@ -2,6 +2,10 @@ add_executable(${BUILD_TARGET_NAME}
   ${SRC_DIR}/main.cc
 )
 
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  add_compile_definitions(DEBUG)
+endif()
+
 target_sources(${BUILD_TARGET_NAME}
   PRIVATE
   ${SRC_DIR}/array_printer/array_printer.cc

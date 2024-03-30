@@ -6,6 +6,11 @@ add_executable(${TEST_TARGET_NAME}
   ${TEST_DIR}/main.cc
 )
 
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+  add_compile_definitions(DEBUG)
+endif()
+
+
 target_sources(${TEST_TARGET_NAME}
   PRIVATE
   ${SRC_DIR}/sorting_algorithms/counting_sort.cc

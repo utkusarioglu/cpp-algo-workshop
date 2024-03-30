@@ -84,7 +84,7 @@
       "type": "pickString",
       "id": "buildType",
       "description": "Desired build type",
-      "default": "",
+      "default": "Debug",
       "options": [
         "Release",
         "Debug"

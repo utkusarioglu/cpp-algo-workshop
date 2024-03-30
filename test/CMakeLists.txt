@@ -16,6 +16,7 @@ target_sources(${TEST_TARGET_NAME}
   ${SRC_DIR}/leetcode/clone_graph.cc
   ${SRC_DIR}/leetcode/minimum_window_substring.cc
   ${SRC_DIR}/leetcode/spiral_matrix.cc
+  ${SRC_DIR}/data_structures/fenwick_tree.cc
   # ${SRC_DIR}/leetcode/valid_anagram.cc
 )
 

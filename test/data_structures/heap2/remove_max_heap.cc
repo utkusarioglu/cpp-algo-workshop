@@ -1,5 +1,5 @@
-#ifndef CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MIN_HEAP_CC_
-#define CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MIN_HEAP_CC_
+#ifndef CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MAX_HEAP_CC_
+#define CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MAX_HEAP_CC_
 
 #include <gtest/gtest.h>
 
@@ -35,7 +35,7 @@ namespace Heap::UnitTest::Remove::Max
   {
     using Num = int;
     TestCase t = GetParam();
-    Heap<Num> h = Heap<Num>(HeapType<Num>::max);
+    Heap2<Num> h = Heap2<Num>(HeapType<Num>::max);
 
     for (Num v : t.values) {
       h.insert(v);
@@ -52,4 +52,4 @@ namespace Heap::UnitTest::Remove::Max
   };
 }  // namespace Heap::UnitTest::Remove::Max
 
-#endif /* CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MIN_HEAP_CC_ */
+#endif /* CAW_TEST_DATA_STRUCTURES_HEAP2_REMOVE_MAX_HEAP_CC_ */

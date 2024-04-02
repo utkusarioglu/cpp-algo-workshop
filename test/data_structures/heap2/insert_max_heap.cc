@@ -40,7 +40,7 @@ namespace Heap::UnitTest::Insert::Max
   TEST_P(HeapInsertMaxTf, InsertMaxHeap)
   {
     const TestCase tc = GetParam();
-    Heap<int> h = Heap<int>(HeapType<int>::max);
+    Heap2<int> h = Heap2<int>(HeapType<int>::max);
 
     for (int val : tc.arr) {
       h.insert(val);

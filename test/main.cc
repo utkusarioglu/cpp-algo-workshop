@@ -5,6 +5,7 @@
 
 #include "array/array_unit_test.cc"
 #include "data_structures/fenwick_tree_unit_test.cc"
+#include "data_structures/heap2_unit_test.cc"
 #include "dynamic_programming/knapsack_unit_test.cc"
 #include "leetcode/buy_sell_stock_unit_test.cc"
 #include "leetcode/clone_graph_unit_test.cc"

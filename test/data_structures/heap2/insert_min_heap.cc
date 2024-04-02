@@ -40,7 +40,7 @@ namespace Heap::UnitTest::Insert::Min
   TEST_P(HeapInsertMinTf, InsertMinHeap)
   {
     const TestCase tc = GetParam();
-    Heap<int> h = Heap<int>();
+    Heap2<int> h = Heap2<int>();
 
     for (int val : tc.arr) {
       h.insert(val);

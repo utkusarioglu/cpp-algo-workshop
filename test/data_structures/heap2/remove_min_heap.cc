@@ -35,7 +35,7 @@ namespace Heap::UnitTest::Remove::Min
   {
     using Num = int;
     TestCase t = GetParam();
-    Heap<Num> h = Heap<Num>();
+    Heap2<Num> h = Heap2<Num>();
 
     for (Num v : t.values) {
       h.insert(v);

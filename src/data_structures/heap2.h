@@ -50,14 +50,14 @@ namespace Heap
   };
 
   template <typename T>
-  class Heap
+  class Heap2
   {
   public:
-    Heap()
+    Heap2()
     {
     }
 
-    Heap(std::function<bool(std::vector<T> &, T, T)> comparator)
+    Heap2(std::function<bool(std::vector<T> &, T, T)> comparator)
     {
       this->comparator = comparator;
     }

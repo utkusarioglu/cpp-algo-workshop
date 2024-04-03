@@ -25,6 +25,12 @@
       ]
     },
     {
+      "label": "...Debug Linux",
+      "type": "shell",
+      "command": "scripts/install.linux.sh Debug && scripts/build.linux.sh Debug",
+      "detail": "Build a linux binary"
+    },
+    {
       "label": "Install Linux",
       "type": "shell",
       "command": "scripts/install.linux.sh ${input:buildType}",

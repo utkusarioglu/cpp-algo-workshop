@@ -57,7 +57,7 @@ namespace Heap
     {
     }
 
-    Heap2(std::function<bool(std::vector<T> &, T, T)> comparator)
+    Heap2(std::function<ComparatorFunc<T>> comparator)
     {
       this->comparator = comparator;
     }

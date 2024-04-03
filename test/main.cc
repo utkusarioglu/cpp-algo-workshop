@@ -17,6 +17,7 @@
 #include "leetcode/spiral_matrix_unit_test.cc"
 #include "leetcode/two_sum_unit_test.cc"
 #include "leetcode/valid_anagram_unit_test.cc"
+#include "math/fibonacci_unit_test.h"
 #include "search/binary_search_unit_test.cc"
 #include "sorting_algorithms/bubble_sort_unit_test.cc"
 #include "sorting_algorithms/counting_sort_unit_test.cc"

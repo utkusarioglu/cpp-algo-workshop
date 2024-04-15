@@ -1,6 +1,7 @@
 #ifndef CAW_SRC_SORTING_ALGORITHMS_MERGE_SORT_H_
 #define CAW_SRC_SORTING_ALGORITHMS_MERGE_SORT_H_
 
+#include <exception>
 #include <utility>
 #include <vector>
 
@@ -10,7 +11,7 @@ namespace MergeSort
   class MergeSort
   {
   public:
-    const std::vector<T> sort(const std::vector<T> unsorted)
+    const std::vector<T> recurse(const std::vector<T> unsorted)
     {
       const int unsortedSize = unsorted.size();
       if (unsortedSize < 2) {
@@ -27,8 +28,8 @@ namespace MergeSort
         }
       }
 
-      const std::vector<T> smallerSorted = this->sort(smallerUnsorted);
-      const std::vector<T> largerSorted = this->sort(largerUnsorted);
+      const std::vector<T> smallerSorted = this->recurse(smallerUnsorted);
+      const std::vector<T> largerSorted = this->recurse(largerUnsorted);
       const int smallerSortedSize = smallerSorted.size();
       const int largerSortedSize = largerSorted.size();
       int smallerIndex = 0;
@@ -57,6 +58,56 @@ namespace MergeSort
       }
 
       return sorted;
+    }
+
+    const std::vector<T> loop(const std::vector<T> unsorted)
+    {
+      if (unsorted.size() < 2) {
+        return unsorted;
+      }
+
+      std::vector<std::vector<T>> sorted;
+      for (size_t i = 0; i < unsorted.size(); i++) {
+        sorted.emplace_back(std::vector<T>{unsorted[i]});
+      }
+
+      while (sorted.size() != 1) {
+        std::vector<std::vector<T>> newLevel;
+
+        for (size_t p = 0; p < sorted.size(); p = p + 2) {
+          std::vector<T> left = sorted[p];
+          if (p + 1 == sorted.size()) {
+            newLevel.push_back(left);
+            continue;
+          }
+          std::vector<T> right = sorted[p + 1];
+          size_t li = 0;
+          size_t ri = 0;
+          std::vector<T> merged;
+
+          while (li < left.size() || ri < right.size()) {
+            if (li == left.size()) {
+              merged.push_back(right[ri++]);
+              continue;
+            } else if (ri == right.size()) {
+              merged.push_back(left[li++]);
+              continue;
+            }
+
+            if (left[li] < right[ri]) {
+              merged.push_back(left[li++]);
+            } else {
+              merged.push_back((right[ri++]));
+            }
+          }
+
+          newLevel.push_back(merged);
+        }
+
+        sorted = newLevel;
+      }
+
+      return sorted[0];
     }
   };
 

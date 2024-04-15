@@ -55,17 +55,27 @@ namespace MergeSort
       )
     );
 
-    TEST_P(MergeSortTestFixture, Works)
+    TEST_P(MergeSortTestFixture, Recursive)
     {
       const IntVector param = GetParam();
       const IntVector expected =
         MergeSortTestFixture::produceSortedExpected(param);
       auto mergeSort = std::make_unique<MergeSort<int>>();
-      auto response = mergeSort->sort(param);
+      auto response = mergeSort->recurse(param);
 
       ASSERT_EQ(response, expected);
     }
 
+    TEST_P(MergeSortTestFixture, Loopy)
+    {
+      const IntVector param = GetParam();
+      const IntVector expected =
+        MergeSortTestFixture::produceSortedExpected(param);
+      auto mergeSort = std::make_unique<MergeSort<int>>();
+      auto response = mergeSort->loop(param);
+
+      ASSERT_EQ(response, expected);
+    }
   }  // namespace UnitTests
 }  // namespace MergeSort
 

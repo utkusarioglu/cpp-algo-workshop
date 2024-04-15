@@ -12,9 +12,19 @@
       "cwd": "${workspaceRoot}",
       "linux": {
         "MIMode": "gdb",
-        "miDebuggerPath": "/usr/bin/gdb"
+        "miDebuggerPath": "/usr/bin/gdb",
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+      ],
       },
-      "preLaunchTask": "...Debug Linux"
+      "preLaunchTask": "...Debug Linux",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false
     }
   ]
 }

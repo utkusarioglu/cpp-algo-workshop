@@ -30,5 +30,6 @@
 #include "sorting_algorithms/min_heap_sort_unit_test.cc"
 #include "sorting_algorithms/min_heap_unit_test.cc"
 #include "sorting_algorithms/quick_sort_unit_test.cc"
+#include "sorting_algorithms/radix_sort_unit_test.cc"
 
 #endif /* CAW_TEST_MAIN_CC_ */
